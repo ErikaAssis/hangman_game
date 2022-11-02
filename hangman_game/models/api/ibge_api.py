@@ -1,3 +1,4 @@
+from random import randrange
 from typing import Union
 
 from models.api.api import Api
@@ -10,9 +11,16 @@ class IBGEApi(Api):
         super().__init__(url)
 
     def random_state_of_brasil(self):
-        state = self.random_data
+        state = self.__get_random_data()
         return Localization(state["nome"], state["regiao"]["nome"])
 
     def random_country(self):
-        country = self.random_data
+        country = self.__get_random_data()
         return Localization(country["nome"], country["sub-regiao"]["nome"])
+
+    def __get_random_data(self):
+        if self.response.status_code == 200:
+            response = self.response.json()
+            length = len(response)
+            return response[randrange(length)]
+        return None
