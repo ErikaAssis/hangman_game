@@ -106,7 +106,14 @@ class Hangman:
     def start(self):
         stop = False
 
+        print(
+            """
+            #####################################################################################
+            ################################# JOGO DA FORCA #####################################
+            #####################################################################################\n"""
+        )
         print(f"Palavra possui {len(self.__word)} letras")
+        print(f"Você possui {self.__lives} vidas")
         print(f'-->> {"".join(self.__hangman)}\n')
 
         if (self.__tip is not None) and (len(self.__tip) > 0):
