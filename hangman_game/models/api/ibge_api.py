@@ -1,9 +1,8 @@
-import requests as req
-from random import randrange
-from urlpath import URL
 from typing import Union
 
 from models.api.api import Api
+from models.utils.location import Localization
+from urlpath import URL
 
 
 class IBGEApi(Api):
@@ -12,8 +11,8 @@ class IBGEApi(Api):
 
     def random_state_of_brasil(self):
         state = self.random_data
-        return {"state": state["nome"], "region": state["regiao"]["nome"]}
+        return Localization(state["nome"], state["regiao"]["nome"])
 
     def random_country(self):
         country = self.random_data
-        return {"country": country["nome"], "region": country["sub-regiao"]["nome"]}
+        return Localization(country["nome"], country["sub-regiao"]["nome"])

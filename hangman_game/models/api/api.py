@@ -1,7 +1,8 @@
-import requests as req
 from random import randrange
-from urlpath import URL
 from typing import Union
+
+import requests as req
+from urlpath import URL
 
 
 class Api:
