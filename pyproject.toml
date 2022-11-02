@@ -14,7 +14,28 @@ pytest = "^5.2"
 isort = "^5.10.1"
 black = "^22.10.0"
 autoflake = "^1.7.7"
+pre-commit = "^2.20.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310']
+extend-exclude = '''
+/(
+  # Excluded by Black
+  | .venv
+  | venv
+  | .pytest_cache
+)/
+'''
+
+[tool.isort]
+py_version = "all"
+profile = "black"
+line_length = 100
+only_modified = true
+overwrite_in_place = true
+skip_glob = [".pytest_cache/*", ".venv/*", "venv/*"]
