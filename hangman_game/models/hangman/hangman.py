@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Hangman:
     def __init__(self, word: str, tip: str = None, lives: int = 5):
         self.__word = word.upper().strip()
@@ -8,14 +11,14 @@ class Hangman:
         self.__CARACTERS_UNUSED = [""]
         self.__tip = tip.strip()
 
-    def __find_letter(self, letter: str):
+    def __find_letter(self, letter: str) -> List[str]:
         letter = letter
         positions = []
         if ((letter in self.__lst_word) is True) and (len(letter) == 1):
             positions = [i for i, val in enumerate(self.__lst_word) if val == letter]
         return positions
 
-    def __secret_word(self):
+    def __secret_word(self) -> List[str]:
         secret_word_lst = []
         for i in self.__lst_word:
             if i == " ":
@@ -24,7 +27,7 @@ class Hangman:
             secret_word_lst.append("_")
         return secret_word_lst
 
-    def __check_used_letters(self, letter: str):
+    def __check_used_letters(self, letter: str) -> bool:
         if letter not in self.__used_letters:
             self.__used_letters.append(letter)
             return True
@@ -84,7 +87,7 @@ class Hangman:
         print("      \_         _/         ")
         print("        \_______/           ")
 
-    def __stop(self):
+    def __stop(self) -> bool:
         if "_" not in "".join(self.__hangman):
             self.__winner_message()
             return True
@@ -93,7 +96,7 @@ class Hangman:
             return True
         return False
 
-    def __read_letter(self):
+    def __read_letter(self) -> str:
         caracter_valid = False
         while caracter_valid is False:
             letter = str(input("Digite uma letra: ")).upper().strip()

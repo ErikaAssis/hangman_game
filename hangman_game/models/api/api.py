@@ -9,9 +9,9 @@ class Api:
         self.__url = url
         self.__response = self.__get_url()
 
-    def __get_url(self):
+    def __get_url(self) -> req.models.Response:
         return req.get(self.__url)
 
     @property
-    def response(self):
+    def response(self) -> dict:
         return self.__response

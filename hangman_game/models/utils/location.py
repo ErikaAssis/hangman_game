@@ -4,9 +4,9 @@ class Localization:
         self.__region = region
 
     @property
-    def local(self):
+    def local(self) -> str:
         return self.__local
 
     @property
-    def region(self):
+    def region(self) -> str:
         return f"Região {self.__region}"
