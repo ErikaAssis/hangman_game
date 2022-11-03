@@ -1,4 +1,4 @@
-class Localization:
+class Location:
     def __init__(self, local: str, region: str):
         self.__local = local.strip()
         self.__region = region.strip()
