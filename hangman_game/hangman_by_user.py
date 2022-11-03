@@ -1,8 +1,16 @@
+import sys
+
 from models.hangman.hangman import Hangman
 from models.utils.utils import cls
 
-word = str(input("Digite uma palavra: "))
-tip = str(input("Escreva uma dica: "))
+args = sys.argv
+
+if len(args) >= 3:
+    word = args[1]
+    tip = args[2]
+else:
+    word = str(input("Digite uma palavra: "))
+    tip = str(input("Escreva uma dica: "))
 
 cls()
 
