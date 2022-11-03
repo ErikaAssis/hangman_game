@@ -1,5 +1,4 @@
-from models.api.ibge_api import IBGEApi
-from models.hangman.hangman import Hangman
+from models import Hangman, IBGEApi
 from urlpath import URL
 
 url = URL("https://servicodados.ibge.gov.br/api/v1/localidades/estados")

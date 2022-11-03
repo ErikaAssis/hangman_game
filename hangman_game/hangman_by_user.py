@@ -1,7 +1,6 @@
 import sys
 
-from models.hangman.hangman import Hangman
-from models.utils.utils import cls
+from models import Hangman, cls
 
 args = sys.argv
 

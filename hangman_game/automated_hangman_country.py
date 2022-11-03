@@ -1,5 +1,4 @@
-from models.api.ibge_api import IBGEApi
-from models.hangman.hangman import Hangman
+from models.api.ibge_api import Hangman, IBGEApi
 
 url = "https://servicodados.ibge.gov.br/api/v1/localidades/paises"
 random_country = IBGEApi(url).random_country()
