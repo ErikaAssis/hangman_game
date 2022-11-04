@@ -1,9 +1,10 @@
 from random import randrange
 from typing import Union
 
-from models.api.api import Api
-from models.utils.movie import Movie
 from urlpath import URL
+
+from hangman_game.models.api.api import Api
+from hangman_game.models.utils.movie import Movie
 
 
 class MovieApi(Api):
